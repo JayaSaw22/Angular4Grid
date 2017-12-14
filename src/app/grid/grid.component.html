@@ -1,0 +1,56 @@
+<!-- <p>
+  grid works!
+</p> -->
+<!-- <div class = 'col-md-offset-2'>
+<div class='form-group col-md-2'>
+  <label class='form-label col-md-offset-2'>search: </label>
+  <input type='text' class='form-control col-md-offset-2' [(ngModel)]='query' placeholder = 'search'>
+</div></div> -->
+<div class='container' style='margin-top: 50px;'>
+  <div class='row'>
+    <nav class='navbar navbar-default' appMyVisibility>
+      <div class='navbar-header'>
+        <a href="# " class="navbar-brand " appMyVisibility>search</a>
+      </div>
+      <div class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" [(ngModel)]='query' appMyVisibility>
+
+        </div>
+      </div>
+    </nav>
+    <table class=" table table-responsive  table table-boarded" style='margin-bottom:40px;'>
+      <thead>
+        <tr>
+          <th>
+            <a (click)="sortCriteria = {column : 'name'}">Name</a>
+          </th>
+          <th>
+            <a (click)="sortCriteria = {column : 'username'}">UserName</a>
+          </th>
+          <th>
+            <a (click)="sortCriteria = { column : 'email'}">Email</a>
+          </th>
+          <th>Action</th>
+
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let user of (users| search: query | sort: sortCriteria | paginate : {itemsPerPage : 5, currentPage : p})"
+        id='myTable' appMyVisibility>
+        <tr>
+          <td>{{user.name}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)='delete(user.id)'>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+<div class='col-md-offset-5'>
+  <pagination-controls (pageChange)="p= $event" ></pagination-controls>
+</div>

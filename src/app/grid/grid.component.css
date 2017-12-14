@@ -1,0 +1,6 @@
+.appMyVisibility{
+    -webkit-box-shadow: 0px 0px 30px 5px rgb(199 , 199, 199);
+    -moz-box-shadow: 0px 0px 30px 5px rgb(199 , 199, 199);
+    box-shadow: 0px 0px 30px 5px rgb(199 , 199, 199);
+    transition: box-shadow .5s ease-in-out;
+}
